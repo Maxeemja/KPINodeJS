@@ -20,8 +20,8 @@
 		"*.{js,ts}": [
 			"eslint --fix"
 		],
-		"**/*.+(js|ts|json)": [
-			"npm run prettier:fix"
+		"*.+(js|ts|json)": [
+			"npm run prettier"
 		]
 	},
 	"devDependencies": {
