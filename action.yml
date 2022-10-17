@@ -1,0 +1,7 @@
+name: 'Labs'
+author: 'Vova and Maxim'
+description: 'Nodejs project'
+
+runs:
+  using: 'node16'
+  main: 'build/index.js'
