@@ -11,6 +11,11 @@
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
-		"types" : ["node"],
-	}
+	},
+	"references": [
+		{
+			"path": "./tsconfig.build.json"
+		}
+	],
+	"exclude": ["node_modules"]
 }
