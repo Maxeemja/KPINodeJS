@@ -21,7 +21,7 @@
 			"eslint --fix"
 		],
 		"**/*.+(js|ts|json)": [
-			"npm run prettier"
+			"npm run prettier:fix"
 		]
 	},
 	"devDependencies": {
