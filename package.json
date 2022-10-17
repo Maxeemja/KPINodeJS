@@ -4,14 +4,13 @@
 	"description": "Lab 1",
 	"main": "index.js",
 	"scripts": {
-		"prepare": "husky install",
 		"server:watch": "ts-node-dev --respawn --transpile-only src/index.ts",
 		"start": "nodemon --watch './src/**/*.ts' --exec ts-node ./src/index.ts",
 		"build": "tsc -p tsconfig.build.json",
 		"lint": "eslint --cache --ext .ts .",
 		"lint:fix": "eslint --cache --ext .ts . --fix",
-		"prettier": "prettier --ignore-path .gitignore --check \"**/*.+(js|ts|json)\"",
-		"prettier:fix": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"prettier": "prettier --ignore-path .gitignore --check \"src/**/*.{js,ts,json}\"",
+		"prettier:fix": "prettier --ignore-path .gitignore --write \"src/**/*.{js,ts,json}\"",
 		"pre-commit": "lint-staged --relative"
 	},
 	"author": "",
@@ -20,7 +19,7 @@
 		"*.{js,ts}": [
 			"eslint --fix"
 		],
-		"*.+(js|ts|json)": [
+		"*.{js,ts,json}": [
 			"npm run prettier"
 		]
 	},
@@ -28,6 +27,7 @@
 		"@babel/core": "^7.18.5",
 		"@babel/preset-env": "^7.18.2",
 		"@babel/preset-typescript": "^7.17.12",
+		"@types/morgan": "^1.9.3",
 		"@types/node": "^17.0.45",
 		"@typescript-eslint/eslint-plugin": "^5.27.1",
 		"@typescript-eslint/parser": "^5.27.1",
@@ -47,6 +47,7 @@
 	},
 	"dependencies": {
 		"dotenv": "^16.0.1",
-		"log4js": "^6.5.2"
+		"log4js": "^6.5.2",
+		"morgan": "^1.10.0"
 	}
 }
