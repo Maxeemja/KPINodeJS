@@ -35,3 +35,8 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Code Linting
+        run: |
+          npm run eslint
+          npm run prettier

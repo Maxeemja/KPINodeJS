@@ -1,6 +1,6 @@
 // import { logger } from './utils/logger';
-import { PORT } from './config/preload';
-import { createServer } from './config/server';
+import { PORT } from './config/preload.js';
+import { createServer } from './config/server.js';
 
 const app = createServer();
 

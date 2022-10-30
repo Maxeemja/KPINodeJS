@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
-const { env } = process;
+const { env } = process
 
-export const { PORT, HOSTNAME, LOG_LEVEL } = env;
+export const { PORT, HOSTNAME, LOG_LEVEL } = env
