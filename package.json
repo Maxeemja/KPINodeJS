@@ -19,7 +19,10 @@
 	"author": "Max and Vova",
 	"license": "ISC",
 	"lint-staged": {
-		"*.{js,ts,json}": ["eslint --ext .js,.ts src/", "prettier . --check"]
+		"*.{js,ts,json}": [
+			"eslint --ext .js,.ts src/",
+			"prettier . --check"
+		]
 	},
 	"devDependencies": {
 		"@babel/core": "^7.18.5",
