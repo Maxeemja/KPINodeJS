@@ -17,7 +17,10 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "sonarjs"],
+  "plugins": [
+    "@typescript-eslint",
+    "sonarjs"
+  ],
   "rules": {
     "no-multiple-empty-lines": [
       "error",
@@ -25,9 +28,16 @@
         "max": 1
       }
     ],
-    "no-var": ["error"],
-    "no-console": ["warn"],
-    "arrow-parens": ["error", "always"],
+    "no-var": [
+      "error"
+    ],
+    "no-console": [
+      "warn"
+    ],
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
     "no-else-return": [
       "error",
       {
@@ -40,9 +50,19 @@
         "allowTypedFunctionExpressions": true
       }
     ],
-    "@typescript-eslint/quotes": ["error", "single", "avoid-escape"],
-    "@typescript-eslint/object-curly-spacing": ["error", "always"],
-    "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      "avoid-escape"
+    ],
+    "@typescript-eslint/object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "@typescript-eslint/comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -52,15 +72,23 @@
         "caughtErrors": "all"
       }
     ],
-    "@typescript-eslint/no-explicit-any": ["error"],
+    "@typescript-eslint/no-explicit-any": [
+      "error"
+    ],
     "@typescript-eslint/no-empty-interface": [
       "error",
       {
         "allowSingleExtends": true
       }
     ],
-    "import/no-unresolved": ["off"],
-    "import/no-default-export": ["error"],
+    "import/no-unresolved": [
+      "off"
+    ],
+    "import/no-default-export": [
+      "error"
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
     "import/order": [
       "error",
       {
@@ -69,10 +97,20 @@
           "builtin",
           "external",
           "internal",
-          ["parent", "sibling", "index"],
-          ["object", "type", "unknown"]
+          [
+            "parent",
+            "sibling",
+            "index"
+          ],
+          [
+            "object",
+            "type",
+            "unknown"
+          ]
         ],
-        "pathGroupsExcludedImportTypes": ["internal"],
+        "pathGroupsExcludedImportTypes": [
+          "internal"
+        ],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true

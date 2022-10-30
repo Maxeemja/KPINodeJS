@@ -1,5 +1,6 @@
 import log4js from 'log4js';
 import morgan from 'morgan';
+
 import { LOG_LEVEL } from '../config/preload';
 
 export const logger = log4js.getLogger();
