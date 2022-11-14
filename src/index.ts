@@ -4,4 +4,4 @@ import { createServer } from './config/server.js';
 
 const app = createServer();
 
-app.listen(PORT || 3001);
+app.listen(PORT || 3002);

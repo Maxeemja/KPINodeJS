@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"strict": true,
-		"module": "ES2020",
+		"module": "ESNext",
 		"declaration": true,
 		"removeComments": true,
 		"emitDecoratorMetadata": true,
@@ -21,5 +21,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"esModuleInterop": true,
 		"moduleResolution": "Node"
+	},
+	"ts-node": {
+		"esm": true
 	}
 }
