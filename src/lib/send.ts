@@ -1,13 +1,10 @@
 import { ServerResponse } from 'http';
 
-// TODO: make more acceptable data formats
 const formatResponse = {
 	json: (data: any): any => ({
 		formattedData: JSON.stringify(data),
 		contentType: 'application/json',
 	}),
-	// xml: 'application/xml',
-	// formdata: 'multipart/form-data',
 };
 
 export default function send(
@@ -32,7 +29,4 @@ export default function send(
 	res.write(formattedData);
 
 	res.end();
-
-	// eslint-disable-next-line no-useless-return
-	return;
 }

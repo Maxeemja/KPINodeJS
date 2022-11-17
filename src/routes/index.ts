@@ -1,4 +1,5 @@
-import Router, { HTTP_METHODS } from '../lib/router.js';
+import { HttpMethodEnum } from '../lib/http-method.enum.js';
+import Router from '../lib/router.js';
 import send from '../lib/send.js';
 
 const router = new Router();
@@ -7,7 +8,7 @@ router.get('/', (_req, res) => {
 	send(res, { message: 'root route' }, 'json');
 });
 
-router.add(HTTP_METHODS.GET, '/node', (_req, res) => {
+router.add(HttpMethodEnum.GET, '/node', (_req, res) => {
 	send(res, { message: 'js' }, 'json');
 });
 

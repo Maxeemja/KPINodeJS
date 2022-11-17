@@ -1,7 +1,7 @@
 import Server from './lib/server.js';
 import router from './routes/index.js';
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 
 const server = new Server();
 

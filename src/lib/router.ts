@@ -1,19 +1,8 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { URL } from 'url';
 
+import { HttpMethodEnum } from './http-method.enum.js';
 import send from './send.js';
-
-export enum HTTP_METHODS {
-	GET = 'GET',
-	POST = 'POST',
-	PUT = 'PUT',
-	DELETE = 'DELETE',
-	PATCH = 'PATCH',
-	OPTIONS = 'OPTIONS',
-	HEAD = 'HEAD',
-	CONNECT = 'CONNECT',
-	TRACE = 'TRACE',
-}
 
 type Handler = (req: IncomingMessage, res: ServerResponse) => void | Promise<void>;
 
@@ -22,7 +11,7 @@ export default class Router {
 
 	async handle(req: IncomingMessage, res: ServerResponse): Promise<void> {
 		const path = new URL(req.url || '/', `http://${req.headers.host}`).pathname;
-		const method = req.method || HTTP_METHODS.GET;
+		const method = req.method || HttpMethodEnum.GET;
 
 		const routeHandlers = this.handlers[path]?.[method];
 		if (!routeHandlers || routeHandlers.length === 0) {
@@ -31,11 +20,12 @@ export default class Router {
 		}
 
 		for (const handler of this.handlers[path][method]) {
+			// eslint-disable-next-line no-await-in-loop
 			await handler(req, res);
 		}
 	}
 
-	add(method: HTTP_METHODS, path = '/', ...handlers: Handler[]) {
+	add(method: HttpMethodEnum, path = '/', ...handlers: Handler[]) {
 		if (!this.handlers[path]?.[method]) {
 			this.handlers[path] = {
 				...(this.handlers[path] || {}),
@@ -45,38 +35,38 @@ export default class Router {
 	}
 
 	get(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.GET, path, ...handlers);
+		this.add(HttpMethodEnum.GET, path, ...handlers);
 	}
 
 	post(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.POST, path, ...handlers);
+		this.add(HttpMethodEnum.POST, path, ...handlers);
 	}
 
 	put(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.PUT, path, ...handlers);
+		this.add(HttpMethodEnum.PUT, path, ...handlers);
 	}
 
 	delete(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.DELETE, path, ...handlers);
+		this.add(HttpMethodEnum.DELETE, path, ...handlers);
 	}
 
 	options(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.OPTIONS, path, ...handlers);
+		this.add(HttpMethodEnum.OPTIONS, path, ...handlers);
 	}
 
 	patch(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.PATCH, path, ...handlers);
+		this.add(HttpMethodEnum.PATCH, path, ...handlers);
 	}
 
 	trace(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.TRACE, path, ...handlers);
+		this.add(HttpMethodEnum.TRACE, path, ...handlers);
 	}
 
 	head(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.HEAD, path, ...handlers);
+		this.add(HttpMethodEnum.HEAD, path, ...handlers);
 	}
 
 	connect(path = '/', ...handlers: Handler[]) {
-		this.add(HTTP_METHODS.CONNECT, path, ...handlers);
+		this.add(HttpMethodEnum.CONNECT, path, ...handlers);
 	}
 }

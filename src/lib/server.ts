@@ -27,6 +27,7 @@ export default class {
 				this.connections.delete(socket);
 			});
 		});
+		// eslint-disable-next-line no-constructor-return
 		return this;
 	}
 
