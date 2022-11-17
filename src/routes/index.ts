@@ -1,24 +1,22 @@
-import Router, {HTTP_METHODS} from '../lib/Router.js';
+import Router, { HTTP_METHODS } from '../lib/router.js';
 import send from '../lib/send.js';
 
 const router = new Router();
 
 router.get('/', (_req, res) => {
-  send(res, {message: 'root route'}, 'json');
+	send(res, { message: 'root route' }, 'json');
 });
 
 router.add(HTTP_METHODS.GET, '/node', (_req, res) => {
-  send(res, {message: 'js'}, 'json');
+	send(res, { message: 'js' }, 'json');
 });
 
 router.get('/get', (_req, res) => {
-  send(res, {message: 'GET method test'}, 'json');
+	send(res, { message: 'GET method test' }, 'json');
 });
-
 
 router.post('/post', (_req, res) => {
-  send(res, {message: 'POST method test'}, 'json');
+	send(res, { message: 'POST method test' }, 'json');
 });
-
 
 export default router;
