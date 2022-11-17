@@ -17,8 +17,12 @@ export default function (
   type: keyof typeof formatResponse = 'json',
   statusCode = 200
 ) {
-  if (!(type in formatResponse))
-    throw new Error(`Unsupported response type: ${type}`);
+  if (!(type in formatResponse)) {
+    // throw new Error(`Unsupported response type: ${type}`);
+    console.log(`Unsupported response type: ${type}`);
+    res.writeHead(500);
+    return;
+  }
 
   const { formattedData, contentType } = formatResponse[type](data);
 
