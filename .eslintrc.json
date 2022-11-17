@@ -5,20 +5,21 @@
 	},
 	"extends": [
 		"airbnb-base",
-		"eslint:recommended",
+		//		"eslint:recommended",
 		"plugin:import/recommended",
 		"plugin:import/typescript",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:prettier/recommended",
-		"plugin:sonarjs/recommended"
+		"plugin:sonarjs/recommended",
+		"plugin:prettier/recommended"
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": 2021,
 		"sourceType": "module"
 	},
-	"plugins": ["@typescript-eslint", "sonarjs"],
+	"plugins": ["@typescript-eslint", "sonarjs", "prettier"],
 	"rules": {
+		"prettier/prettier": "error",
 		"no-multiple-empty-lines": [
 			"error",
 			{
@@ -26,7 +27,8 @@
 			}
 		],
 		"no-var": ["error"],
-		"no-console": ["warn"],
+		"no-console": ["off"],
+		"no-restricted-syntax": "off",
 		"arrow-parens": ["error", "always"],
 		"no-else-return": [
 			"error",
@@ -35,7 +37,7 @@
 			}
 		],
 		"@typescript-eslint/explicit-function-return-type": [
-			"error",
+			"warn",
 			{
 				"allowTypedFunctionExpressions": true
 			}
@@ -52,7 +54,7 @@
 				"caughtErrors": "all"
 			}
 		],
-		"@typescript-eslint/no-explicit-any": ["error"],
+		"@typescript-eslint/no-explicit-any": ["off"],
 		"@typescript-eslint/no-empty-interface": [
 			"error",
 			{
@@ -60,7 +62,7 @@
 			}
 		],
 		"import/no-unresolved": ["off"],
-		"import/no-default-export": ["error"],
+		"import/no-default-export": ["off"],
 		"import/prefer-default-export": "off",
 		"import/extensions": "off",
 		"import/order": [
