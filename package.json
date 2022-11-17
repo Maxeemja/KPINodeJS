@@ -1,7 +1,7 @@
 {
-	"name": "lab1",
+	"name": "node_labs",
 	"version": "1.0.0",
-	"description": "Lab 1",
+	"description": "KPI Node labs",
 	"main": "index.js",
 	"scripts": {
 		"dev": "nodemon src/index.ts",
