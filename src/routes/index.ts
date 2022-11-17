@@ -20,4 +20,10 @@ router.post('/post', (_req, res) => {
 	send(res, { message: 'POST method test' }, 'json');
 });
 
+router.post('/post/xml', (_req, res) => {
+	_req.on('data', function (data) {
+		send(res, data, 'xml');
+	});
+});
+
 export default router;

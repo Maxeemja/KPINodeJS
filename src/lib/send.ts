@@ -1,9 +1,20 @@
 import { ServerResponse } from 'http';
 
-const formatResponse = {
-	json: (data: any): any => ({
+import libxmljs from 'libxmljs';
+
+const formatResponse: {
+	[key in string]: (data: any) => {
+		formattedData: any;
+		contentType: string;
+	};
+} = {
+	json: (data: string) => ({
 		formattedData: JSON.stringify(data),
 		contentType: 'application/json',
+	}),
+	xml: (data: string) => ({
+		formattedData: libxmljs.parseXmlString(data).toString(),
+		contentType: 'application/xml',
 	}),
 };
 
