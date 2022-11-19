@@ -16,19 +16,6 @@ router.get('/get', (_req, res) => {
 	send(res, { message: 'GET method test' }, 'json');
 });
 
-router.get('/get/xml', (_req, res) => {
-	send(
-		res,
-		'<note>\n' +
-			'<to>Tove</to>\n' +
-			'<from>Jani</from>\n' +
-			'<heading>Reminder</heading>\n' +
-			"<body>Don't forget me this weekend!</body>\n" +
-			'</note>',
-		'xml',
-	);
-});
-
 router.post('/post', (_req, res) => {
 	send(res, { message: 'POST method test' }, 'json');
 });

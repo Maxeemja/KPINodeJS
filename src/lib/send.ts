@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http';
 
-import libxmljs from 'libxmljs';
+import { XMLParser } from 'fast-xml-parser';
 
 const formatResponse: {
 	[key in string]: (data: any) => {
@@ -12,10 +12,14 @@ const formatResponse: {
 		formattedData: JSON.stringify(data),
 		contentType: 'application/json',
 	}),
-	xml: (data: string) => ({
-		formattedData: libxmljs.parseXmlString(data).toString(),
-		contentType: 'application/xml',
-	}),
+	xml: (data: string) => {
+		const parser = new XMLParser();
+		const jObj = parser.parse(data);
+		return {
+			formattedData: JSON.stringify(jObj),
+			contentType: 'application/xml',
+		};
+	},
 };
 
 export default function send(
