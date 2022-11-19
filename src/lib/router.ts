@@ -6,7 +6,7 @@ import send from './send.js';
 
 type Handler = (req: IncomingMessage, res: ServerResponse) => void | Promise<void>;
 
-export default class Router {
+export default class {
 	private handlers: { [path: string]: { [method: string]: Handler[] } } = {};
 
 	async handle(req: IncomingMessage, res: ServerResponse): Promise<void> {
