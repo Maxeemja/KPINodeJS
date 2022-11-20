@@ -19,9 +19,8 @@ export default class {
 			return;
 		}
 
-		for (const handler of this.handlers[path][method]) {
-			// eslint-disable-next-line no-await-in-loop
-			await handler(req, res);
+		for (const handler of await Promise.all(this.handlers[path][method])) {
+			handler(req, res);
 		}
 	}
 

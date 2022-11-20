@@ -1,7 +1,7 @@
 import Server from './lib/server.js';
 import router from './routes/index.js';
 
-const PORT = process.env.PORT || 8080;
+const PORT = parseInt(process.env.PORT || '8080');
 
 const server = new Server();
 
@@ -17,10 +17,6 @@ const shutdown = async () => {
 	await server.shutdown();
 	process.exit(0);
 };
-
-process.on('SIGINT', async () => {
-	await shutdown();
-});
 
 process.on('SIGTERM', async () => {
 	await shutdown();

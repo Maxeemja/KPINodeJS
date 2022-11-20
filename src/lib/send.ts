@@ -3,18 +3,18 @@ import { ServerResponse } from 'http';
 import { XMLParser } from 'fast-xml-parser';
 
 const formatResponse: {
-	[key in string]: (data: any) => {
+	[key in string]: (data: unknown) => {
 		formattedData: any;
 		contentType: string;
 	};
 } = {
-	json: (data: string) => ({
+	json: (data: unknown) => ({
 		formattedData: JSON.stringify(data),
 		contentType: 'application/json',
 	}),
-	xml: (data: string) => {
+	xml: (data: unknown) => {
 		const parser = new XMLParser();
-		const jObj = parser.parse(data);
+		const jObj = parser.parse(data as string);
 		return {
 			formattedData: JSON.stringify(jObj),
 			contentType: 'application/xml',
