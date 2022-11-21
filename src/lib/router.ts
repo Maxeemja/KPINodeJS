@@ -1,8 +1,8 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { URL } from 'url';
 
-import { HttpMethodEnum } from './http-method.enum.js';
-import send from './send.js';
+import { HttpMethodEnum } from './http-method.enum';
+import send from './send';
 
 type Handler = (req: IncomingMessage, res: ServerResponse) => void | Promise<void>;
 

@@ -1,6 +1,6 @@
-import { HttpMethodEnum } from '../lib/http-method.enum.js';
-import Router from '../lib/router.js';
-import send from '../lib/send.js';
+import { HttpMethodEnum } from '../lib/http-method.enum';
+import Router from '../lib/router';
+import send from '../lib/send';
 
 const router = new Router();
 
