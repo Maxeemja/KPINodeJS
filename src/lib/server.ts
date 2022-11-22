@@ -13,19 +13,19 @@ export default class {
 
 	private connections = new Map<Socket, http.ServerResponse>();
 
-	constructor(longResponseMs = 100000) {
+	constructor() {
 		this.httpServer = http.createServer((_req, res) => {
 			if (!res.socket) return;
 			this.connections.set(res.socket, res);
-			setTimeout(() => {
-				send(res, UNAVAILABLE_MESSAGE, 'json', 503);
-			}, longResponseMs);
 		});
 
 		this.httpServer.on('connection', (socket) => {
 			socket.on('close', () => {
 				this.connections.delete(socket);
 			});
+		});
+		this.httpServer.on('clientError', (err, socket) => {
+			socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 		});
 		// eslint-disable-next-line no-constructor-return
 		return this;
